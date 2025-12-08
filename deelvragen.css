@@ -61,24 +61,26 @@ nav {
     align-items: center;
     justify-content: center;
 
-    position: relative; /* Needed for left-positioned hamburger */
+    position: relative;
 }
 
 
 
 /* ========== HAMBURGER MENU BUTTON ========== */
 .ham-menu {
-    height: 50px;
-    width: 40px;
+    height: 40px;
+    width: 35px;
 
     position: absolute;
     left: 1rem;
     top: 50%;
     transform: translateY(-50%);
+
+    cursor: pointer;
 }
 
 .ham-menu span {
-    height: 5px;
+    height: 4px;
     width: 100%;
     background-color: #6F86FF;
     border-radius: 25px;
@@ -94,7 +96,9 @@ nav {
 .ham-menu span:nth-child(1) {
     top: 25%;
 }
-
+.ham-menu span:nth-child(2) {
+    top: 50%;
+}
 .ham-menu span:nth-child(3) {
     top: 75%;
 }
