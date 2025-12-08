@@ -50,19 +50,27 @@ body {
 /* nav */
 nav {
     padding: 1rem;
+    background-color: rgb(34, 37, 49);
+
+    /* toegevoegde regels voor centreren titel */
     display: flex;
     align-items: center;
-    background-color: rgb(34, 37, 49);
+    justify-content: center;   /* titel in het midden */
+    position: relative;        /* nodig om hamburger links te houden */
 }
 
 
 
-/* ham menu – nu LINKS */
+/* ham menu – LINKS */
 .ham-menu {
     height: 50px;
     width: 40px;
-    position: relative;
+    position: absolute;     /* zodat hij links blijft */
+    left: 1rem;             /* afstand vanaf linkerkant */
+    top: 50%;
+    transform: translateY(-50%);
 }
+
 .ham-menu span {
     height: 5px;
     width: 100%;
@@ -97,10 +105,10 @@ nav {
 
 
 
-/* NAV-TITEL (toegevoegd) */
+/* NAV TITEL (groot + midden) */
 .nav-title {
     color: white;
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-left: 1rem; /* afstand tussen menu en tekst */
+    font-size: 2rem;     /* groter */
+    font-weight: 700;
+    text-align: center;
 }
