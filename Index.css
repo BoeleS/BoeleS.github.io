@@ -1,4 +1,4 @@
-/* base styles */
+/* ====== BASE STYLES ====== */
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +7,18 @@
     text-decoration: none;
 }
 
+body {
+    font-family: sans-serif;
+    background-color: rgb(65, 71, 97);
+    background-image: url("AI School.jpg");  
+    background-size: cover;                 
+    background-position: center;           
+    background-repeat: no-repeat;           
+    background-attachment: fixed;          
+    padding-top: 70px; /* ruimte voor navbar */
+}
+
+/* Links */
 a {
     color: white;
 }
@@ -17,87 +29,64 @@ a:hover {
     color: #6F86FF;
 }
 
-body {
-    background-color: rgb(65, 71, 97);
-    font-family: sans-serif;
-    background-image: url("AI School.jpg");  
-    background-size: cover;                 
-    background-position: center;           
-    background-repeat: no-repeat;           
-    background-attachment: fixed;          
-    
-    font-family: sans-serif;
-}
-
-
-
-/* off-screen-menu (nu van LINKS) */
-.off-screen-menu {
-    background-color: rgb(34, 37, 49);
-    height: 100vh;
-    width: 100%;
-    max-width: 450px;
+/* ====== NAVBAR ====== */
+nav {
     position: fixed;
     top: 0;
-    left: -450px;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgb(34,37,49);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 1rem;
+    z-index: 1000;
+}
+
+/* Titel in navbar */
+.nav-title {
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
     text-align: center;
-    font-size: 3rem;
-    transition: 0.3s ease;
-}
-.off-screen-menu.active {
-    left: 0;
+    max-width: 80%;
 }
 
-
-
-/* nav */
-nav {
-    padding: 1rem;
-    background-color: rgb(34, 37, 49);
-
-    /* toegevoegde regels voor centreren titel */
-    display: flex;
-    align-items: center;
-    justify-content: center;   /* titel in het midden */
-    position: relative;        /* nodig om hamburger links te houden */
-}
-
-
-
-/* ham menu – LINKS */
+/* ====== HAMBURGER MENU LINKS ====== */
 .ham-menu {
-    height: 50px;
     width: 40px;
-    position: absolute;     /* zodat hij links blijft */
-    left: 1rem;             /* afstand vanaf linkerkant */
-    top: 50%;
-    transform: translateY(-50%);
+    height: 50px;
+    position: absolute;
+    top: 15px;       /* linksboven, boven navbar */
+    left: 15px;
+    cursor: pointer;
+    z-index: 1001;
 }
 
+/* Hamburger-strepen */
 .ham-menu span {
-    height: 5px;
-    width: 100%;
-    background-color: #6F86FF;
-    border-radius: 25px;
+    display: block;
     position: absolute;
     left: 50%;
     top: 50%;
+    width: 100%;
+    height: 5px;
+    background-color: #6F86FF;
+    border-radius: 25px;
+    transition: 0.3s ease;
     transform: translate(-50%, -50%);
-    transition: .3s ease;
 }
-.ham-menu span:nth-child(1) {
-    top: 25%;
-}
-.ham-menu span:nth-child(3) {
-    top: 75%;
-}
+
+.ham-menu span:nth-child(1) { top: 25%; }
+.ham-menu span:nth-child(2) { top: 50%; }
+.ham-menu span:nth-child(3) { top: 75%; }
+
+/* Active hamburger menu (X) */
 .ham-menu.active span {
     background-color: white;
 }
+
 .ham-menu.active span:nth-child(1) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
@@ -110,12 +99,43 @@ nav {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+/* ====== OFF-SCREEN MENU ====== */
+.off-screen-menu {
+    position: fixed;
+    top: 60px; /* iets lager zodat eerste link niet in navbar zit */
+    left: -450px;
+    width: 100%;
+    max-width: 450px;
+    height: calc(100vh - 60px); /* past onder navbar */
+    background-color: rgb(34,37,49);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* start bovenaan menu */
+    align-items: flex-start;     /* links uitlijnen */
+    font-size: 1.5rem;           /* zelfde als bij deelvragen */
+    padding: 20px;               /* ruimte van boven en zijkant */
+    transition: 0.3s ease;
+    z-index: 999;
+}
 
+.off-screen-menu.active {
+    left: 0;
+}
 
-/* NAV TITEL (groot + midden) */
-.nav-title {
+.off-screen-menu ul {
+    padding: 0;
+    margin: 0;
+}
+
+.off-screen-menu li {
+    margin: 10px 0; /* verticale afstand tussen items */
+}
+
+.off-screen-menu a {
+    font-size: 1.5rem;
     color: white;
-    font-size: 2rem;     /* groter */
-    font-weight: 700;
-    text-align: center;
+    display: block;
+}
+.off-screen-menu a:hover {
+    color: #6F86FF;
 }
