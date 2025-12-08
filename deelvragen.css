@@ -47,38 +47,46 @@ nav {
 /* ====== HAMBURGER MENU LINKS ====== */
 .ham-menu {
     position: absolute;
-    top: 15px;        /* afstand van bovenkant navbar */
-    left: 15px;       /* afstand van linkerkant navbar */
+    top: 22px;       /* iets lager geplaatst */
+    left: 15px;      /* afstand van linkerkant */
     width: 35px;
     height: 35px;
     cursor: pointer;
     z-index: 1001;
-    transform: none; /* geen centreren */
 }
 
+/* Hamburger-strepen */
 .ham-menu span {
     display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
     width: 100%;
     height: 4px;
-    margin: 6px 0;
     background-color: #6F86FF;
     border-radius: 10px;
     transition: 0.3s ease;
-    position: relative;
+    transform: translate(-50%, -50%);
 }
+
+.ham-menu span:nth-child(1) { top: 25%; }
+.ham-menu span:nth-child(2) { top: 50%; }
+.ham-menu span:nth-child(3) { top: 75%; }
 
 /* Active hamburger menu (X) */
 .ham-menu.active span {
     background-color: white;
 }
 .ham-menu.active span:nth-child(1) {
-    transform: rotate(45deg);
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 .ham-menu.active span:nth-child(2) {
     opacity: 0;
 }
 .ham-menu.active span:nth-child(3) {
-    transform: rotate(-45deg);
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 /* ====== OFF-SCREEN MENU ====== */
@@ -97,7 +105,7 @@ nav {
     font-size: 2rem;
     transition: 0.3s ease;
     z-index: 999;
-    padding: 20px; /* ruimte boven en links */
+    padding: 40px 20px; /* ruimte boven en links */
 }
 
 .off-screen-menu.active {
