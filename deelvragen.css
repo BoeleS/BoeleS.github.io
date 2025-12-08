@@ -7,6 +7,13 @@
     text-decoration: none;
 }
 
+body {
+    background-color: rgb(65, 71, 97);
+    font-family: sans-serif;
+    padding-top: 70px; /* ruimte voor navbar */
+}
+
+/* Links */
 a {
     color: white;
 }
@@ -17,78 +24,51 @@ a:hover {
     color: #6F86FF;
 }
 
-body {
-    background-color: rgb(65, 71, 97);
-    font-family: sans-serif;
-}
-
-
-
-/* ========== OFF-SCREEN MENU ========== */
-.off-screen-menu {
-    background-color: rgb(34, 37, 49);
-    height: 100vh;
-    width: 100%;
-    max-width: 450px;
-
-    position: fixed;
-    top: 0;
-    left: -450px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-    font-size: 3rem;
-
-    transition: 0.3s ease;
-}
-
-.off-screen-menu.active {
-    left: 0;
-}
-
-
-
 /* ========== NAVIGATION BAR ========== */
 nav {
-    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
     background-color: rgb(34, 37, 49);
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    position: relative;
+    z-index: 1000;
+    padding: 0 1rem;
 }
 
-
+/* Navbar titel */
+.nav-title {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    max-width: 80%;
+}
 
 /* ========== HAMBURGER MENU BUTTON ========== */
 .ham-menu {
-    height: 40px;
-    width: 35px;
-
+    height: 50px;
+    width: 40px;
     position: absolute;
     left: 1rem;
     top: 50%;
     transform: translateY(-50%);
-
     cursor: pointer;
+    z-index: 1001; /* boven off-screen menu */
 }
 
 .ham-menu span {
-    height: 4px;
+    display: block;
+    height: 5px;
     width: 100%;
     background-color: #6F86FF;
     border-radius: 25px;
-
     position: absolute;
     left: 50%;
     top: 50%;
-
     transform: translate(-50%, -50%);
     transition: 0.3s ease;
 }
@@ -103,31 +83,58 @@ nav {
     top: 75%;
 }
 
-/* Active hamburger (X icon) */
 .ham-menu.active span {
     background-color: white;
 }
-
 .ham-menu.active span:nth-child(1) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
 }
-
 .ham-menu.active span:nth-child(2) {
     opacity: 0;
 }
-
 .ham-menu.active span:nth-child(3) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-
-
-/* ========== NAV TITLE ========== */
-.nav-title {
-    color: white;
+/* ========== OFF-SCREEN MENU ========== */
+.off-screen-menu {
+    position: fixed;
+    top: 0;
+    left: -450px;
+    width: 100%;
+    max-width: 450px;
+    height: 100vh;
+    background-color: rgb(34,37,49);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     font-size: 2rem;
-    font-weight: 700;
+    transition: 0.3s ease;
+    z-index: 999;
+}
+
+.off-screen-menu.active {
+    left: 0;
+}
+
+.off-screen-menu ul {
+    list-style: none;
+    padding: 0;
     text-align: center;
+}
+
+.off-screen-menu li {
+    margin: 15px 0;
+}
+
+.off-screen-menu a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+.off-screen-menu a:hover {
+    color: #6F86FF;
 }
