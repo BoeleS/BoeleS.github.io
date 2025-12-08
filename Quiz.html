@@ -4,7 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="deelvragen.css" />
-    <title>Deelvraag 1</title>
+    <title>Quiz</title>
+
+    <style>
+      .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+      }
+
+      .quiz-button {
+        padding: 25px 60px;
+        font-size: 2rem;
+        font-weight: bold;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+        text-decoration: none;
+      }
+
+      .quiz-button:hover {
+        background-color: #3e8e41;
+      }
+    </style>
   </head>
   <body>
     <!-- Off-screen menu -->
@@ -37,6 +63,10 @@
     <!-- Pagina-inhoud -->
     <main>
       <p>Hier komt je content voor deelvraag 1.</p>
+
+      <div class="center-container">
+        <a href="mijnNieuweQuizPagina.html" class="quiz-button">Quiz</a>
+      </div>
     </main>
 
     <script src="Menu.js"></script>
