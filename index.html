@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./Index.css" />
-    <title>PWS informatica</title>
+    <title>PWS Informatica</title>
   </head>
 
   <body>
@@ -78,8 +78,26 @@
         let antwoord = "";
         const vraag = message.toLowerCase();
 
-        // Antwoorden op specifieke vragen
-        if (
+        // Lijst van hallo-variaties
+        const halloVariaties = [
+          "hallo",
+          "hoi",
+          "hey",
+          "hee",
+          "heee",
+          "hallo daar",
+          "hi",
+          "yo",
+          "heeey",
+          "heey",
+          "haai",
+          "hai",
+        ];
+
+        // Check of het een hallo is
+        if (halloVariaties.some((h) => vraag.includes(h))) {
+          antwoord = "Hallo! Waar kan ik je mee helpen? 😊";
+        } else if (
           vraag.includes("quiz") ||
           vraag.includes("quizz") ||
           vraag.includes("spel") ||

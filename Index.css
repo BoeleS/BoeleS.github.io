@@ -215,3 +215,28 @@ nav {
 #send-btn:hover {
   background: #8398ff;
 }
+/* ===== CHATBOT BALLONNEN ===== */
+#chat-box .bot-msg, #chat-box .user-msg {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin: 5px 0;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+/* Bot-berichten (blauw) */
+#chat-box .bot-msg {
+  background-color: #6F86FF;
+  color: white;
+  align-self: flex-start;
+  border-top-left-radius: 0;
+}
+
+/* Gebruiker-berichten (donkergrijs) */
+#chat-box .user-msg {
+  background-color: #222;
+  color: white;
+  align-self: flex-end;
+  border-top-right-radius: 0;
+}
