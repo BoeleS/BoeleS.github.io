@@ -15,13 +15,11 @@ body {
     background-position: center;           
     background-repeat: no-repeat;           
     background-attachment: fixed;          
-    padding-top: 70px; /* ruimte voor navbar */
+    padding-top: 7vh;
 }
 
 /* Links */
-a {
-    color: white;
-}
+a,
 a:visited {
     color: white;
 }
@@ -35,7 +33,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px;
+    height: 7vh;
     background-color: rgb(34,37,49);
     display: flex;
     align-items: center;
@@ -44,10 +42,9 @@ nav {
     z-index: 1000;
 }
 
-/* Titel in navbar */
 .nav-title {
     color: white;
-    font-size: 2rem;
+    font-size: 2.2vw;
     font-weight: 700;
     text-align: center;
     max-width: 80%;
@@ -55,38 +52,36 @@ nav {
 
 /* ====== HAMBURGER MENU ====== */
 .ham-menu {
-    width: 40px;
-    height: 50px;
+    width: 6vw;
+    height: 6vh;
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 1vh;
+    left: 2vw;
     cursor: pointer;
     z-index: 1001;
 }
 
-/* Hamburger-strepen */
 .ham-menu span {
     display: block;
     position: absolute;
     left: 50%;
     top: 50%;
     width: 100%;
-    height: 5px;
+    height: 0.7vh;
     background-color: #6F86FF;
     border-radius: 25px;
     transition: 0.3s ease;
     transform: translate(-50%, -50%);
 }
 
-.ham-menu span:nth-child(1) { top: 25%; }
+.ham-menu span:nth-child(1) { top: 30%; }
 .ham-menu span:nth-child(2) { top: 50%; }
-.ham-menu span:nth-child(3) { top: 75%; }
+.ham-menu span:nth-child(3) { top: 70%; }
 
 /* Active hamburger menu (X) */
 .ham-menu.active span {
     background-color: white;
 }
-
 .ham-menu.active span:nth-child(1) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
@@ -102,17 +97,17 @@ nav {
 /* ====== OFF-SCREEN MENU ====== */
 .off-screen-menu {
     position: fixed;
-    top: 60px;
-    left: -270px;
-    max-width: 270px;
-    height: calc(100vh - 60px);
+    top: 7vh;
+    left: -40vw;
+    width: 40vw;
+    height: 93vh;
     background-color: rgb(34,37,49);
     display: flex;
     flex-direction: column;
     justify-content: flex-start; 
     align-items: flex-start;     
-    font-size: 1.5rem;           
-    padding: 20px;               
+    font-size: 2vw;
+    padding: 3vw;
     transition: 0.3s ease;
     z-index: 999;
 }
@@ -121,17 +116,12 @@ nav {
     left: 0;
 }
 
-.off-screen-menu ul {
-    padding: 0;
-    margin: 0;
-}
-
 .off-screen-menu li {
-    margin: 10px 0;
+    margin: 1.5vh 0;
 }
 
 .off-screen-menu a {
-    font-size: 1.5rem;
+    font-size: 2vw;
     color: white;
     display: block;
 }
@@ -142,15 +132,15 @@ nav {
 /* ===== CHATBOT STYLES ===== */
 #chat-toggle {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 2vh;
+  right: 2vw;
   background-color: #6F86FF;
   color: white;
   border: none;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-size: 28px;
+  width: 7vh;
+  height: 7vh;
+  font-size: 3vh;
   cursor: pointer;
   z-index: 2000;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -158,12 +148,12 @@ nav {
 
 #chat-container {
   position: fixed;
-  bottom: 90px;
-  right: 20px;
-  width: 320px;
-  height: 420px;
+  bottom: 12vh;
+  right: 2vw;
+  width: 30vw;
+  height: 50vh;
   background: rgb(34, 37, 49);
-  border-radius: 15px;
+  border-radius: 2vh;
   display: none;
   flex-direction: column;
   justify-content: space-between;
@@ -176,20 +166,37 @@ nav {
   background: #6F86FF;
   color: white;
   text-align: center;
-  padding: 10px;
+  padding: 1vh;
   font-weight: bold;
+  font-size: 1.8vw;
 }
 
 #chat-box {
   flex-grow: 1;
-  padding: 10px;
+  padding: 1vh;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  font-size: 1.6vw;
 }
 
-#chat-box div {
-  margin-bottom: 10px;
+#chat-box .bot-msg, #chat-box .user-msg {
+  padding: 1vh 1vw;
+  border-radius: 1.5vh;
+  margin: 0.5vh 0;
+  max-width: 80%;
+}
+
+#chat-box .bot-msg {
+  background-color: #6F86FF;
+  align-self: flex-start;
+  border-top-left-radius: 0;
+}
+
+#chat-box .user-msg {
+  background-color: #222;
+  align-self: flex-end;
+  border-top-right-radius: 0;
 }
 
 #chat-input-area {
@@ -199,102 +206,21 @@ nav {
 
 #user-input {
   flex: 1;
-  padding: 10px;
+  padding: 1vh;
   border: none;
-  outline: none;
   background: #222;
   color: white;
+  font-size: 1.6vw;
 }
 
 #send-btn {
   background: #6F86FF;
   border: none;
   color: white;
-  padding: 10px 15px;
+  padding: 1vh 1vw;
   cursor: pointer;
+  font-size: 1.6vw;
 }
-
 #send-btn:hover {
   background: #8398ff;
-}
-
-/* ===== CHATBOT BALLONNEN ===== */
-#chat-box .bot-msg, #chat-box .user-msg {
-  display: inline-block;
-  padding: 10px 15px;
-  border-radius: 15px;
-  margin: 5px 0;
-  max-width: 80%;
-  word-wrap: break-word;
-}
-
-#chat-box .bot-msg {
-  background-color: #6F86FF;
-  color: white;
-  align-self: flex-start;
-  border-top-left-radius: 0;
-}
-
-#chat-box .user-msg {
-  background-color: #222;
-  color: white;
-  align-self: flex-end;
-  border-top-right-radius: 0;
-}
-
-/* ================================================================= */
-/* ====================== RESPONSIVE VOOR MOBIEL ==================== */
-/* ================================================================= */
-
-@media (max-width: 600px) {
-
-    body {
-        background-attachment: scroll; /* voorkomt zoomproblemen */
-    }
-
-    /* Navbar titel kleiner */
-    .nav-title {
-        font-size: 1.4rem;
-        max-width: 60%;
-    }
-
-    /* Hamburger kleiner */
-    .ham-menu {
-        width: 32px;
-        height: 40px;
-        top: 18px;
-        left: 12px;
-    }
-
-    .ham-menu span {
-        height: 4px;
-    }
-
-    /* Off-screen menu smaller */
-    .off-screen-menu {
-        max-width: 220px;
-        font-size: 1.2rem;
-        padding: 15px;
-    }
-
-    /* Chatbot knop kleiner */
-    #chat-toggle {
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
-        bottom: 15px;
-        right: 15px;
-    }
-
-    /* Chat venster kleiner */
-    #chat-container {
-        width: 260px;
-        height: 350px;
-        bottom: 75px;
-        right: 15px;
-    }
-
-    #chat-input-area input {
-        font-size: 0.9rem;
-    }
 }
