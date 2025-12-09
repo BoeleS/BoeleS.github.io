@@ -10,7 +10,10 @@
 body {
     font-family: sans-serif;
     background-color: rgb(65, 71, 97);
-}    
+    color: white;
+    padding-top: 70px; /* ruimte voor navbar */
+    line-height: 1.6;
+}
 
 /* Links */
 a {
@@ -47,18 +50,16 @@ nav {
     max-width: 80%;
 }
 
-/* ====== HAMBURGER MENU LINKS ====== */
+/* ====== HAMBURGER MENU ====== */
 .ham-menu {
     width: 40px;
     height: 50px;
     position: absolute;
-    top: 15px;       /* linksboven, boven navbar */
+    top: 15px;
     left: 15px;
     cursor: pointer;
     z-index: 1001;
 }
-
-/* Hamburger-strepen */
 .ham-menu span {
     display: block;
     position: absolute;
@@ -71,64 +72,85 @@ nav {
     transition: 0.3s ease;
     transform: translate(-50%, -50%);
 }
-
 .ham-menu span:nth-child(1) { top: 25%; }
 .ham-menu span:nth-child(2) { top: 50%; }
 .ham-menu span:nth-child(3) { top: 75%; }
-
-/* Active hamburger menu (X) */
-.ham-menu.active span {
-    background-color: white;
-}
-
-.ham-menu.active span:nth-child(1) {
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-}
-.ham-menu.active span:nth-child(2) {
-    opacity: 0;
-}
-.ham-menu.active span:nth-child(3) {
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg);
-}
+.ham-menu.active span { background-color: white; }
+.ham-menu.active span:nth-child(1) { top: 50%; transform: translate(-50%, -50%) rotate(45deg); }
+.ham-menu.active span:nth-child(2) { opacity: 0; }
+.ham-menu.active span:nth-child(3) { top: 50%; transform: translate(-50%, -50%) rotate(-45deg); }
 
 /* ====== OFF-SCREEN MENU ====== */
 .off-screen-menu {
     position: fixed;
-    top: 60px; /* iets lager zodat eerste link niet in navbar zit */
+    top: 60px;
     left: -270px;
     max-width: 270px;
-    height: calc(100vh - 60px); /* past onder navbar */
+    height: calc(100vh - 60px);
     background-color: rgb(34,37,49);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* start bovenaan menu */
-    align-items: flex-start;     /* links uitlijnen */
-    font-size: 1.5rem;           /* zelfde als bij deelvragen */
-    padding: 20px;               /* ruimte van boven en zijkant */
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 1.5rem;
+    padding: 20px;
     transition: 0.3s ease;
     z-index: 999;
 }
+.off-screen-menu.active { left: 0; }
+.off-screen-menu ul { padding: 0; margin: 0; }
+.off-screen-menu li { margin: 10px 0; }
+.off-screen-menu a { font-size: 1.5rem; color: white; display: block; }
+.off-screen-menu a:hover { color: #6F86FF; }
 
-.off-screen-menu.active {
-    left: 0;
+/* ====== CONTENT STYLING VOOR DEELVRAAG 1 ====== */
+main.content {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(34,37,49,0.9); /* semi-transparante achtergrond */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
-.off-screen-menu ul {
-    padding: 0;
-    margin: 0;
-}
-
-.off-screen-menu li {
-    margin: 10px 0; /* verticale afstand tussen items */
-}
-
-.off-screen-menu a {
-    font-size: 1.5rem;
-    color: white;
-    display: block;
-}
-.off-screen-menu a:hover {
+main.content h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
     color: #6F86FF;
+}
+
+main.content h2 {
+    font-size: 1.5rem;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #8398FF;
+    border-left: 4px solid #6F86FF;
+    padding-left: 10px;
+}
+
+main.content p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* Responsive voor mobiel */
+@media (max-width: 768px) {
+    main.content {
+        margin: 10px;
+        padding: 15px;
+    }
+    main.content h1 {
+        font-size: 1.5rem;
+    }
+    main.content h2 {
+        font-size: 1.2rem;
+    }
+    .off-screen-menu {
+        max-width: 200px;
+    }
+    .off-screen-menu a {
+        font-size: 1.2rem;
+    }
 }
