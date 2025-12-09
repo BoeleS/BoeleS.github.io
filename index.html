@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="./Index.css" />
     <title>PWS informatica</title>
   </head>
+
   <body>
+    <!-- ====== OFF-SCREEN MENU ====== -->
     <div class="off-screen-menu">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -20,16 +22,83 @@
       </ul>
     </div>
 
+    <!-- ====== NAVBAR ====== -->
     <nav>
       <div class="ham-menu">
         <span></span>
         <span></span>
         <span></span>
       </div>
-
-      <!-- JE NAVIGATIETEKST -->
       <h1 class="nav-title">Profielwerkstuk Informatica</h1>
     </nav>
+
+    <!-- ====== CHATBOT START ====== -->
+    <button id="chat-toggle">💬</button>
+
+    <div id="chat-container">
+      <div id="chat-header">Chatbot</div>
+      <div id="chat-box"></div>
+      <div id="chat-input-area">
+        <input id="user-input" type="text" placeholder="Typ een bericht..." />
+        <button id="send-btn">➤</button>
+      </div>
+    </div>
+
+    <script>
+      const chatToggle = document.getElementById("chat-toggle");
+      const chatContainer = document.getElementById("chat-container");
+      const chatBox = document.getElementById("chat-box");
+      const sendBtn = document.getElementById("send-btn");
+      const userInput = document.getElementById("user-input");
+
+      // Chat aan/uit zetten
+      chatToggle.onclick = () => {
+        chatContainer.style.display =
+          chatContainer.style.display === "flex" ? "none" : "flex";
+      };
+
+      // Bericht verzenden
+      sendBtn.onclick = sendMessage;
+      userInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") sendMessage();
+      });
+
+      function sendMessage() {
+        const message = userInput.value.trim();
+        if (message === "") return;
+
+        addMessage("Jij", message);
+        userInput.value = "";
+
+        let antwoord = "";
+
+        const vraag = message.toLowerCase();
+
+        // Specifieke antwoorden
+        if (
+          vraag.includes("quiz") ||
+          vraag.includes("quizz") ||
+          vraag.includes("spel") ||
+          vraag.includes("test")
+        ) {
+          antwoord =
+            "Open het menu links bovenin — helemaal onderaan vind je de knop ‘Quiz’. 🎯";
+        } else {
+          antwoord =
+            "Bij andere vragen kun je het gewoon vragen aan de mensen bij het kraampje! 😊";
+        }
+
+        setTimeout(() => addMessage("Bot", antwoord), 500);
+      }
+
+      function addMessage(sender, text) {
+        const msg = document.createElement("div");
+        msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
+        chatBox.appendChild(msg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+    </script>
+    <!-- ====== CHATBOT END ====== -->
 
     <script src="./Menu.js"></script>
   </body>

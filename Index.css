@@ -138,3 +138,80 @@ nav {
 .off-screen-menu a:hover {
     color: #6F86FF;
 }
+/* ===== CHATBOT STYLES ===== */
+#chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #6F86FF;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 2000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#chat-container {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 320px;
+  height: 420px;
+  background: rgb(34, 37, 49);
+  border-radius: 15px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+}
+
+#chat-header {
+  background: #6F86FF;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+#chat-box {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  color: white;
+}
+
+#chat-box div {
+  margin-bottom: 10px;
+}
+
+#chat-input-area {
+  display: flex;
+  border-top: 1px solid #555;
+}
+
+#user-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background: #222;
+  color: white;
+}
+
+#send-btn {
+  background: #6F86FF;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+#send-btn:hover {
+  background: #8398ff;
+}
