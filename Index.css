@@ -42,7 +42,6 @@ nav {
     z-index: 1000;
 }
 
-/* Titel */
 .nav-title {
     color: white;
     font-size: 2rem;
@@ -79,7 +78,6 @@ nav {
 .ham-menu span:nth-child(2) { top: 50%; }
 .ham-menu span:nth-child(3) { top: 75%; }
 
-/* Active hamburger in X */
 .ham-menu.active span {
     background-color: white;
 }
@@ -220,60 +218,58 @@ nav {
 #send-btn:hover { background: #8398ff; }
 
 /* ================================================================= */
-/* ========================== MOBILE FIXES ========================== */
+/* ========================== MOBILE PORTRAIT ========================== */
 /* ================================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 600px) and (orientation: portrait) {
 
-    /* Achtergrondafbeelding volledig zichtbaar */
+    /* Hele plaatje zichtbaar als telefoon rechtop staat */
     body {
         background-size: contain !important;
         background-position: top center !important;
         background-repeat: no-repeat !important;
         background-attachment: scroll !important;
-        padding-top: 80px; /* ruimte zodat titel niet over plaatje valt */
+        padding-top: 85px;
     }
 
-    /* Titel perfect gepositioneerd */
+    /* Titel netjes zichtbaar */
     .nav-title {
         font-size: 5.5vw !important;
-        text-align: center !important;
-        width: 100% !important;
-        margin: 0 auto !important;
+        width: 100%;
+        text-align: center;
     }
 
-    /* Hamburger-menu schaal */
     .ham-menu {
         transform: scale(0.85);
         top: 18px;
         left: 18px;
     }
+}
 
-    .ham-menu span {
-        height: 4px;
+/* ================================================================= */
+/* ========================== MOBILE LANDSCAPE ========================== */
+/* ================================================================= */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    /* Hele plaatje zichtbaar als telefoon horizontaal ligt */
+    body {
+        background-size: cover !important;
+        background-position: center top !important;
+        background-repeat: no-repeat;
+        background-attachment: scroll !important;
+        padding-top: 65px;
     }
 
-    /* Menu schaal */
-    .off-screen-menu {
-        max-width: 220px;
-        font-size: 1.3rem;
-        padding: 15px;
+    .nav-title {
+        font-size: 4vw !important;
+        width: 100%;
+        text-align: center;
     }
 
-    /* Chatknop schaal */
-    #chat-toggle {
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
-        bottom: 15px;
-        right: 15px;
-    }
-
-    /* Chatvenster schaal */
-    #chat-container {
-        width: 260px;
-        height: 350px;
-        bottom: 75px;
-        right: 15px;
+    .ham-menu {
+        transform: scale(0.7);
+        top: 12px;
+        left: 12px;
     }
 }
