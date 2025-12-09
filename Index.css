@@ -103,8 +103,7 @@ nav {
 .off-screen-menu {
     position: fixed;
     top: 60px; /* iets lager zodat eerste link niet in navbar zit */
-    left: -450px;
-    width: 100%;
+    left: -270px;
     max-width: 270px;
     height: calc(100vh - 60px); /* past onder navbar */
     background-color: rgb(34,37,49);
