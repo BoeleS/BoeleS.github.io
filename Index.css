@@ -15,7 +15,7 @@ body {
     background-position: center;           
     background-repeat: no-repeat;           
     background-attachment: fixed;          
-    padding-top: 7vh;
+    padding-top: 70px;
 }
 
 /* Links */
@@ -33,7 +33,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    height: 7vh;
+    height: 70px;
     background-color: rgb(34,37,49);
     display: flex;
     align-items: center;
@@ -42,9 +42,10 @@ nav {
     z-index: 1000;
 }
 
+/* Titel */
 .nav-title {
     color: white;
-    font-size: 2.2vw;
+    font-size: 2rem;
     font-weight: 700;
     text-align: center;
     max-width: 80%;
@@ -52,11 +53,11 @@ nav {
 
 /* ====== HAMBURGER MENU ====== */
 .ham-menu {
-    width: 6vw;
-    height: 6vh;
+    width: 40px;
+    height: 50px;
     position: absolute;
-    top: 1vh;
-    left: 2vw;
+    top: 15px;
+    left: 15px;
     cursor: pointer;
     z-index: 1001;
 }
@@ -67,18 +68,18 @@ nav {
     left: 50%;
     top: 50%;
     width: 100%;
-    height: 0.7vh;
+    height: 5px;
     background-color: #6F86FF;
     border-radius: 25px;
     transition: 0.3s ease;
     transform: translate(-50%, -50%);
 }
 
-.ham-menu span:nth-child(1) { top: 30%; }
+.ham-menu span:nth-child(1) { top: 25%; }
 .ham-menu span:nth-child(2) { top: 50%; }
-.ham-menu span:nth-child(3) { top: 70%; }
+.ham-menu span:nth-child(3) { top: 75%; }
 
-/* Active hamburger menu (X) */
+/* Active hamburger in X */
 .ham-menu.active span {
     background-color: white;
 }
@@ -86,9 +87,7 @@ nav {
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
 }
-.ham-menu.active span:nth-child(2) {
-    opacity: 0;
-}
+.ham-menu.active span:nth-child(2) { opacity: 0; }
 .ham-menu.active span:nth-child(3) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
@@ -97,63 +96,58 @@ nav {
 /* ====== OFF-SCREEN MENU ====== */
 .off-screen-menu {
     position: fixed;
-    top: 7vh;
-    left: -40vw;
-    width: 40vw;
-    height: 93vh;
+    top: 60px;
+    left: -270px;
+    max-width: 270px;
+    height: calc(100vh - 60px);
     background-color: rgb(34,37,49);
     display: flex;
     flex-direction: column;
     justify-content: flex-start; 
     align-items: flex-start;     
-    font-size: 2vw;
-    padding: 3vw;
+    font-size: 1.5rem;           
+    padding: 20px;               
     transition: 0.3s ease;
     z-index: 999;
 }
 
-.off-screen-menu.active {
-    left: 0;
-}
+.off-screen-menu.active { left: 0; }
 
-.off-screen-menu li {
-    margin: 1.5vh 0;
-}
+.off-screen-menu li { margin: 10px 0; }
 
 .off-screen-menu a {
-    font-size: 2vw;
+    font-size: 1.5rem;
     color: white;
     display: block;
 }
-.off-screen-menu a:hover {
-    color: #6F86FF;
-}
+.off-screen-menu a:hover { color: #6F86FF; }
 
-/* ===== CHATBOT STYLES ===== */
+/* ===== CHATBOT BUTTON ===== */
 #chat-toggle {
   position: fixed;
-  bottom: 2vh;
-  right: 2vw;
+  bottom: 20px;
+  right: 20px;
   background-color: #6F86FF;
   color: white;
   border: none;
   border-radius: 50%;
-  width: 7vh;
-  height: 7vh;
-  font-size: 3vh;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
   cursor: pointer;
   z-index: 2000;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* ===== CHATBOX ===== */
 #chat-container {
   position: fixed;
-  bottom: 12vh;
-  right: 2vw;
-  width: 30vw;
-  height: 50vh;
+  bottom: 90px;
+  right: 20px;
+  width: 320px;
+  height: 420px;
   background: rgb(34, 37, 49);
-  border-radius: 2vh;
+  border-radius: 15px;
   display: none;
   flex-direction: column;
   justify-content: space-between;
@@ -166,35 +160,38 @@ nav {
   background: #6F86FF;
   color: white;
   text-align: center;
-  padding: 1vh;
+  padding: 10px;
   font-weight: bold;
-  font-size: 1.8vw;
 }
 
 #chat-box {
   flex-grow: 1;
-  padding: 1vh;
+  padding: 10px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  font-size: 1.6vw;
 }
 
-#chat-box .bot-msg, #chat-box .user-msg {
-  padding: 1vh 1vw;
-  border-radius: 1.5vh;
-  margin: 0.5vh 0;
+#chat-box .bot-msg, 
+#chat-box .user-msg {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin: 5px 0;
   max-width: 80%;
+  word-wrap: break-word;
 }
 
 #chat-box .bot-msg {
   background-color: #6F86FF;
+  color: white;
   align-self: flex-start;
   border-top-left-radius: 0;
 }
 
 #chat-box .user-msg {
   background-color: #222;
+  color: white;
   align-self: flex-end;
   border-top-right-radius: 0;
 }
@@ -206,21 +203,82 @@ nav {
 
 #user-input {
   flex: 1;
-  padding: 1vh;
+  padding: 10px;
   border: none;
+  outline: none;
   background: #222;
   color: white;
-  font-size: 1.6vw;
 }
 
 #send-btn {
   background: #6F86FF;
   border: none;
   color: white;
-  padding: 1vh 1vw;
+  padding: 10px 15px;
   cursor: pointer;
-  font-size: 1.6vw;
 }
-#send-btn:hover {
-  background: #8398ff;
+#send-btn:hover { background: #8398ff; }
+
+/* ================================================================= */
+/* ========================== MOBILE FIXES ========================== */
+/* ================================================================= */
+
+@media (max-width: 600px) {
+
+    /* Achtergrond fix zodat het exact gelijk blijft maar niet afgesneden wordt */
+    body {
+        background-size: contain;
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        padding-top: 60px;
+    }
+
+    /* Titel fix: perfect gecentreerd en juiste schaal */
+    .nav-title {
+        font-size: 5vw;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    /* Hamburger duwt titel niet meer opzij */
+    nav {
+        justify-content: center;
+    }
+
+    .ham-menu {
+        left: 3vw;
+        top: 1.5vh;
+        width: 32px;
+        height: 40px;
+    }
+
+    .ham-menu span {
+        height: 4px;
+    }
+
+    /* Menu schaal */
+    .off-screen-menu {
+        max-width: 220px;
+        font-size: 1.3rem;
+        padding: 15px;
+    }
+
+    /* Chat knop */
+    #chat-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    /* Chat venster schaal */
+    #chat-container {
+        width: 260px;
+        height: 350px;
+        bottom: 75px;
+        right: 15px;
+    }
 }
