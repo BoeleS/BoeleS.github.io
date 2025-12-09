@@ -10,11 +10,11 @@
 body {
     font-family: sans-serif;
     background-color: rgb(65, 71, 97);
-    background-image: url("AI School.jpg");  
-    background-size: cover;                 
-    background-position: center;           
-    background-repeat: no-repeat;           
-    background-attachment: fixed;          
+    background-image: url("AI School.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     padding-top: 70px;
 }
 
@@ -103,10 +103,10 @@ nav {
     background-color: rgb(34,37,49);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
-    align-items: flex-start;     
-    font-size: 1.5rem;           
-    padding: 20px;               
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 1.5rem;
+    padding: 20px;
     transition: 0.3s ease;
     z-index: 999;
 }
@@ -172,7 +172,7 @@ nav {
   flex-direction: column;
 }
 
-#chat-box .bot-msg, 
+#chat-box .bot-msg,
 #chat-box .user-msg {
   display: inline-block;
   padding: 10px 15px;
@@ -225,33 +225,28 @@ nav {
 
 @media (max-width: 600px) {
 
-    /* Achtergrond fix zodat het exact gelijk blijft maar niet afgesneden wordt */
+    /* Achtergrondafbeelding volledig zichtbaar */
     body {
-        background-size: contain;
-        background-position: top center;
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-        padding-top: 60px;
+        background-size: contain !important;
+        background-position: top center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: scroll !important;
+        padding-top: 80px; /* ruimte zodat titel niet over plaatje valt */
     }
 
-    /* Titel fix: perfect gecentreerd en juiste schaal */
+    /* Titel perfect gepositioneerd */
     .nav-title {
-        font-size: 5vw;
-        width: 100%;
-        text-align: center;
-        margin: 0 auto;
+        font-size: 5.5vw !important;
+        text-align: center !important;
+        width: 100% !important;
+        margin: 0 auto !important;
     }
 
-    /* Hamburger duwt titel niet meer opzij */
-    nav {
-        justify-content: center;
-    }
-
+    /* Hamburger-menu schaal */
     .ham-menu {
-        left: 3vw;
-        top: 1.5vh;
-        width: 32px;
-        height: 40px;
+        transform: scale(0.85);
+        top: 18px;
+        left: 18px;
     }
 
     .ham-menu span {
@@ -265,7 +260,7 @@ nav {
         padding: 15px;
     }
 
-    /* Chat knop */
+    /* Chatknop schaal */
     #chat-toggle {
         width: 50px;
         height: 50px;
@@ -274,7 +269,7 @@ nav {
         right: 15px;
     }
 
-    /* Chat venster schaal */
+    /* Chatvenster schaal */
     #chat-container {
         width: 260px;
         height: 350px;
