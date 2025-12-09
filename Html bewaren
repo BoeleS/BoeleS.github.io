@@ -1,35 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./Index.css" />
-    <title>Document</title>
-  </head>
-  <body>
+    <title>PWS Informatica</title>
+    <style>
+        /* ====== BASE STYLES ====== */
+        * {margin:0; padding:0; box-sizing:border-box; list-style:none; text-decoration:none;}
+        body {
+            font-family:sans-serif;
+            background-color: rgb(65, 71, 97);
+            background-image: url("AI School.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding-top: 70px;
+        }
+        a {color:white;}
+        a:visited {color:white;}
+        a:hover {color:#6F86FF;}
+
+        /* ====== NAVBAR ====== */
+        nav {
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:70px;
+            background-color: rgb(34,37,49);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:0 1rem;
+            z-index:1000;
+        }
+        .nav-title {color:white; font-size:2rem; font-weight:700; text-align:center; max-width:80%;}
+
+        /* ====== HAMBURGER MENU ====== */
+        .ham-menu {width:40px; height:50px; position:absolute; top:15px; left:15px; cursor:pointer; z-index:1001;}
+        .ham-menu span {display:block; position:absolute; left:50%; top:50%; width:100%; height:5px; background-color:#6F86FF; border-radius:25px; transition:0.3s ease; transform:translate(-50%, -50%);}
+        .ham-menu span:nth-child(1){top:25%;}
+        .ham-menu span:nth-child(2){top:50%;}
+        .ham-menu span:nth-child(3){top:75%;}
+        .ham-menu.active span{background-color:white;}
+        .ham-menu.active span:nth-child(1){top:50%; transform:translate(-50%, -50%) rotate(45deg);}
+        .ham-menu.active span:nth-child(2){opacity:0;}
+        .ham-menu.active span:nth-child(3){top:50%; transform:translate(-50%, -50%) rotate(-45deg);}
+
+        /* ====== OFF-SCREEN MENU ====== */
+        .off-screen-menu {
+            position:fixed;
+            top:60px;
+            left:-270px;
+            max-width:270px;
+            height:calc(100vh - 60px);
+            background-color: rgb(34,37,49);
+            display:flex;
+            flex-direction:column;
+            justify-content:flex-start;
+            align-items:flex-start;
+            font-size:1.5rem;
+            padding:20px;
+            transition:0.3s ease;
+            z-index:999;
+        }
+        .off-screen-menu.active{left:0;}
+        .off-screen-menu li{margin:10px 0;}
+        .off-screen-menu a{font-size:1.5rem; color:white; display:block;}
+        .off-screen-menu a:hover{color:#6F86FF;}
+
+        /* ====== CHATBOT STYLES ====== */
+        #chat-toggle {
+            position: fixed; bottom:20px; right:20px; background-color:#6F86FF; color:white;
+            border:none; border-radius:50%; width:60px; height:60px; font-size:28px; cursor:pointer;
+            z-index:2000; box-shadow:0 4px 10px rgba(0,0,0,0.3);
+        }
+        #chat-container {
+            position: fixed; bottom:90px; right:20px; width:320px; height:420px; background: rgb(34,37,49);
+            border-radius:15px; display:none; flex-direction:column; justify-content:space-between;
+            overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.3); z-index:2000;
+        }
+        #chat-header {background:#6F86FF; color:white; text-align:center; padding:10px; font-weight:bold;}
+        #chat-box {flex-grow:1; padding:10px; overflow-y:auto; display:flex; flex-direction:column;}
+        #chat-box div{margin-bottom:10px;}
+        #chat-input-area {display:flex; border-top:1px solid #555;}
+        #user-input {flex:1; padding:10px; border:none; outline:none; background:#222; color:white;}
+        #send-btn {background:#6F86FF; border:none; color:white; padding:10px 15px; cursor:pointer;}
+        #send-btn:hover{background:#8398ff;}
+        #chat-box .bot-msg, #chat-box .user-msg {display:inline-block; padding:10px 15px; border-radius:15px; margin:5px 0; max-width:80%; word-wrap:break-word;}
+        #chat-box .bot-msg {background-color:#6F86FF; color:white; align-self:flex-start; border-top-left-radius:0;}
+        #chat-box .user-msg {background-color:#222; color:white; align-self:flex-end; border-top-right-radius:0;}
+    </style>
+</head>
+<body>
+
+    <!-- OFF-SCREEN MENU -->
     <div class="off-screen-menu">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Overons.html">Over ons</a></li>
-        <li><a href="Deelvraag1.html">Deelvraag 1</a></li>
-        <li><a href="Deelvraag2.html">Deelvraag 2</a></li>
-        <li><a href="Deelvraag3.html">Deelvraag 3</a></li>
-        <li><a href="Deelvraag4.html">Deelvraag 4</a></li>
-        <li><a href="Deelvraag5.html">Deelvraag 5</a></li>
-        <li><a href="Aanpak.html">Aanpak</a></li>
-        <li><a href="Conclusie.html">Conclusie</a></li>
-        <li><a href="Slot.html">Slot</a></li>
-      </ul>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Overons.html">Over ons</a></li>
+            <li><a href="Deelvraag1.html">Deelvraag 1</a></li>
+            <li><a href="Deelvraag2.html">Deelvraag 2</a></li>
+            <li><a href="Deelvraag3.html">Deelvraag 3</a></li>
+            <li><a href="Deelvraag4.html">Deelvraag 4</a></li>
+            <li><a href="Deelvraag5.html">Deelvraag 5</a></li>
+            <li><a href="Quiz.html">Quiz</a></li>
+        </ul>
     </div>
 
+    <!-- NAVBAR -->
     <nav>
-      <div class="ham-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+        <div class="ham-menu"><span></span><span></span><span></span></div>
+        <h1 class="nav-title">Profielwerkstuk Informatica</h1>
     </nav>
 
-    <script src="./Menu.js"></script>
-  </body>
+    <!-- CHATBOT -->
+    <button id="chat-toggle">💬</button>
+    <div id="chat-container">
+        <div id="chat-header">Chatbot</div>
+        <div id="chat-box"></div>
+        <div id="chat-input-area">
+            <input id="user-input" type="text" placeholder="Typ een bericht..." />
+            <button id="send-btn">➤</button>
+        </div>
+    </div>
+
+    <!-- MENU JS -->
+    <script>
+        const hamMenu = document.querySelector(".ham-menu");
+        const offScreenMenu = document.querySelector(".off-screen-menu");
+
+        hamMenu.addEventListener("click", () => {
+            hamMenu.classList.toggle("active");
+            offScreenMenu.classList.toggle("active");
+        });
+    </script>
+
+    <!-- CHATBOT JS -->
+    <script>
+        const chatToggle = document.getElementById("chat-toggle");
+        const chatContainer = document.getElementById("chat-container");
+        const chatBox = document.getElementById("chat-box");
+        const sendBtn = document.getElementById("send-btn");
+        const userInput = document.getElementById("user-input");
+
+        // KENNISBANK + SAMENVATTING
+        const knowledgeBase = [
+            {
+                keywords: ["hoofdvraag", "algemeen", "ai", "onderwijs"],
+                antwoord: `AI verandert het onderwijs door tijdsbesparing, betere analyses en ondersteuning bij lessen. Docenten benadrukken dat AI een hulpmiddel is en geen vervanging: menselijke controle blijft noodzakelijk.`,
+                samenvatting: `AI maakt leren persoonlijker en efficiënter, maar vervangt de docent niet.`
+            },
+            {
+                keywords: ["deelvraag1", "toepassing", "voordelen", "ai", "onderwijs"],
+                antwoord: `AI kan onderwijs personaliseren door te analyseren hoe een leerling leert en opdrachten automatisch aan te passen. Hierdoor kunnen leerlingen in hun eigen tempo werken en krijgen docenten beter inzicht in de voortgang.`,
+                samenvatting: `AI past opdrachten aan op het niveau van de leerling en geeft docenten inzicht.`
+            },
+            {
+                keywords: ["deelvraag2", "rol", "docent", "veranderingen", "ai"],
+                antwoord: `De komst van AI verandert de rol van de docent. Ze begeleiden leerlingen nu meer bij het begrijpen van informatie, kritisch denken en zelfstandig leren. AI ondersteunt het leerproces, maar vervangt de docent niet.`,
+                samenvatting: `Docenten begeleiden meer, AI ondersteunt maar vervangt hen niet.`
+            },
+            {
+                keywords: ["deelvraag3", "leerling", "gebruik", "voordelen", "nadelen", "ai"],
+                antwoord: `Leerlingen gebruiken AI vooral om moeilijke stof beter te begrijpen, opdrachten overzichtelijk te maken en inspiratie te krijgen. Het kan handig zijn, maar verkeerd gebruik kan hun kritisch denken en zelfstandigheid verminderen.`,
+                samenvatting: `AI helpt leerlingen bij begrijpen en inspiratie, maar kan kritisch denken beïnvloeden.`
+            },
+            {
+                keywords: ["deelvraag4", "ervaring", "docenten", "ai", "werkdruk"],
+                antwoord: `Docenten ervaren AI dubbel: het kan werk verlichten en beter aansluiten bij individuele leerlingen, maar zorgt voor zorgen over betrouwbaarheid, vooroordelen en het behouden van menselijk contact.`,
+                samenvatting: `AI verlicht werkdruk, maar menselijke interactie blijft essentieel.`
+            },
+            {
+                keywords: ["deelvraag5", "risico's", "kritisch denken", "zelfstandig", "vaardigheden"],
+                antwoord: `Te veel gebruik van AI kan het kritisch denken en zelfstandig werken van leerlingen verminderen. AI moet verstandig worden gebruikt als hulpmiddel, niet als vervanger van denkprocessen en leren door fouten maken.`,
+                samenvatting: `Te veel AI kan zelfstandig leren en kritisch denken verminderen.`
+            }
+        ];
+
+        // Open/sluit chatbot
+        chatToggle.onclick = () => {
+            const isOpen = chatContainer.style.display === "flex";
+            chatContainer.style.display = isOpen ? "none" : "flex";
+            if (!isOpen && chatBox.innerHTML.trim() === "") {
+                addMessage("Bot", "Hoi! 👋 Stel je een vraag over AI in het onderwijs of vraag om een samenvatting van de hoofdvraag of deelvragen 1 t/m 5.");
+            }
+        };
+
+        // Verstuur bericht
+        sendBtn.onclick = sendMessage;
+        userInput.addEventListener("keypress", (e) => { if(e.key==="Enter") sendMessage(); });
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if(message==="") return;
+            addMessage("Jij", message);
+            userInput.value = "";
+
+            const vraag = message.toLowerCase();
+            let antwoord = "Sorry, ik heb hier geen specifiek antwoord op. Probeer een hoofdvraag of deelvraag 1 t/m 5.";
+
+            for(const item of knowledgeBase){
+                if(item.keywords.some(k => vraag.includes(k))){
+                    if(vraag.includes("samenvatting")){
+                        antwoord = item.samenvatting;
+                    } else {
+                        antwoord = item.antwoord;
+                    }
+                    break;
+                }
+            }
+
+            setTimeout(()=>addMessage("Bot", antwoord), 500);
+        }
+
+        function addMessage(sender, text){
+            const msg = document.createElement("div");
+            msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
+            msg.className = sender==="Bot" ? "bot-msg" : "user-msg";
+            chatBox.appendChild(msg);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+</body>
 </html>

@@ -154,22 +154,22 @@
             },
             {
                 keywords: ["deelvraag1", "toepassing", "voordelen", "ai", "onderwijs"],
-                antwoord: `AI kan onderwijs personaliseren door te analyseren hoe een leerling leert en opdrachten automatisch aan te passen. Hierdoor kunnen leerlingen in hun eigen tempo werken en krijgen docenten beter inzicht in de voortgang.`,
-                samenvatting: `AI past opdrachten aan op het niveau van de leerling en geeft docenten inzicht.`
+                antwoord: `Kunstmatige intelligentie personaliseert onderwijs door leerdata van leerlingen te analyseren en opdrachten automatisch aan te passen. AI kan repetitieve taken van docenten overnemen, adaptieve toetsen maken, virtuele tutors aanbieden en leermaterialen genereren. Dit verhoogt de effectiviteit van het onderwijs, verkleint verschillen tussen leerlingen, vermindert werkdruk en ontwikkelt digitale vaardigheden.`,
+                samenvatting: `AI past opdrachten aan op het niveau van de leerling, vermindert werkdruk van docenten en ondersteunt leren met virtuele tutors en adaptieve toetsen.`
             },
             {
                 keywords: ["deelvraag2", "rol", "docent", "veranderingen", "ai"],
-                antwoord: `De komst van AI verandert de rol van de docent. Ze begeleiden leerlingen nu meer bij het begrijpen van informatie, kritisch denken en zelfstandig leren. AI ondersteunt het leerproces, maar vervangt de docent niet.`,
+                antwoord: `De komst van AI verandert de rol van de docent. Ze begeleiden leerlingen meer bij het begrijpen van informatie, kritisch denken en zelfstandig leren. AI ondersteunt het leerproces, zoals het volgen van vooruitgang en administratieve taken, maar vervangt de docent niet.`,
                 samenvatting: `Docenten begeleiden meer, AI ondersteunt maar vervangt hen niet.`
             },
             {
                 keywords: ["deelvraag3", "leerling", "gebruik", "voordelen", "nadelen", "ai"],
-                antwoord: `Leerlingen gebruiken AI vooral om moeilijke stof beter te begrijpen, opdrachten overzichtelijk te maken en inspiratie te krijgen. Het kan handig zijn, maar verkeerd gebruik kan hun kritisch denken en zelfstandigheid verminderen.`,
+                antwoord: `Leerlingen gebruiken AI om moeilijke stof beter te begrijpen, opdrachten overzichtelijk te maken, ideeën te genereren en inspiratie op te doen. Verkeerd gebruik kan echter kritisch denken en zelfstandigheid verminderen.`,
                 samenvatting: `AI helpt leerlingen bij begrijpen en inspiratie, maar kan kritisch denken beïnvloeden.`
             },
             {
                 keywords: ["deelvraag4", "ervaring", "docenten", "ai", "werkdruk"],
-                antwoord: `Docenten ervaren AI dubbel: het kan werk verlichten en beter aansluiten bij individuele leerlingen, maar zorgt voor zorgen over betrouwbaarheid, vooroordelen en het behouden van menselijk contact.`,
+                antwoord: `Docenten ervaren AI dubbel: het kan werk verlichten en beter aansluiten bij individuele leerlingen, maar er zijn zorgen over betrouwbaarheid, vooroordelen en het behouden van menselijk contact. Scholing is belangrijk om AI verstandig in te zetten.`,
                 samenvatting: `AI verlicht werkdruk, maar menselijke interactie blijft essentieel.`
             },
             {
@@ -199,7 +199,11 @@
             userInput.value = "";
 
             const vraag = message.toLowerCase();
-            let antwoord = "Sorry, ik heb hier geen specifiek antwoord op. Probeer een hoofdvraag of deelvraag 1 t/m 5.";
+            let antwoord = `Ik weet dit niet helemaal zeker 🤔, maar ik kan helpen met:
+— De hoofdvraag
+— Deelvraag 1 t/m 5
+— Samenvattingen
+Stel je vraag nogmaals op een andere manier.`;
 
             for(const item of knowledgeBase){
                 if(item.keywords.some(k => vraag.includes(k))){
@@ -212,7 +216,12 @@
                 }
             }
 
-            setTimeout(()=>addMessage("Bot", antwoord), 500);
+            // Typ-effect
+            addMessage("Bot", "🤖 Typing...");
+            setTimeout(()=>{
+                chatBox.lastChild.remove(); // verwijder "typing..."
+                addMessage("Bot", antwoord);
+            }, 800);
         }
 
         function addMessage(sender, text){
