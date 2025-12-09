@@ -58,7 +58,7 @@ nav {
     width: 40px;
     height: 50px;
     position: absolute;
-    top: 15px;       /* linksboven, boven navbar */
+    top: 15px;
     left: 15px;
     cursor: pointer;
     z-index: 1001;
@@ -109,10 +109,10 @@ nav {
     background-color: rgb(34,37,49);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* start bovenaan menu */
-    align-items: flex-start;     /* links uitlijnen */
-    font-size: 1.5rem;           /* zelfde als bij deelvragen */
-    padding: 20px;               /* ruimte van boven en zijkant */
+    justify-content: flex-start; 
+    align-items: flex-start;     
+    font-size: 1.5rem;           
+    padding: 20px;               
     transition: 0.3s ease;
     z-index: 999;
 }
@@ -138,6 +138,7 @@ nav {
 .off-screen-menu a:hover {
     color: #6F86FF;
 }
+
 /* ===== CHATBOT STYLES ===== */
 #chat-toggle {
   position: fixed;
@@ -183,7 +184,8 @@ nav {
   flex-grow: 1;
   padding: 10px;
   overflow-y: auto;
-  color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 #chat-box div {
@@ -215,6 +217,7 @@ nav {
 #send-btn:hover {
   background: #8398ff;
 }
+
 /* ===== CHATBOT BALLONNEN ===== */
 #chat-box .bot-msg, #chat-box .user-msg {
   display: inline-block;
@@ -225,7 +228,7 @@ nav {
   word-wrap: break-word;
 }
 
-/* Bot-berichten (blauw) */
+/* Bot-berichten (blauw, links) */
 #chat-box .bot-msg {
   background-color: #6F86FF;
   color: white;
@@ -233,7 +236,7 @@ nav {
   border-top-left-radius: 0;
 }
 
-/* Gebruiker-berichten (donkergrijs) */
+/* Gebruiker-berichten (donkergrijs, rechts) */
 #chat-box .user-msg {
   background-color: #222;
   color: white;
