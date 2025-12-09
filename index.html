@@ -51,10 +51,15 @@
       const sendBtn = document.getElementById("send-btn");
       const userInput = document.getElementById("user-input");
 
-      // Chat aan/uit zetten
+      // Chat openen/sluiten
       chatToggle.onclick = () => {
-        chatContainer.style.display =
-          chatContainer.style.display === "flex" ? "none" : "flex";
+        const isOpen = chatContainer.style.display === "flex";
+        chatContainer.style.display = isOpen ? "none" : "flex";
+
+        // Toon welkomsbericht bij openen
+        if (!isOpen && chatBox.innerHTML.trim() === "") {
+          addMessage("Bot", "Hoi! 👋 Waarmee kan ik je helpen?");
+        }
       };
 
       // Bericht verzenden
@@ -71,10 +76,9 @@
         userInput.value = "";
 
         let antwoord = "";
-
         const vraag = message.toLowerCase();
 
-        // Specifieke antwoorden
+        // Antwoorden op specifieke vragen
         if (
           vraag.includes("quiz") ||
           vraag.includes("quizz") ||
