@@ -1,85 +1,79 @@
-/* base styles */
+/* ====== BASE STYLES ====== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
 }
 
+body {
+    font-family: sans-serif;
+    background-color: rgb(65,71,97);
+    padding-top: 70px; /* ruimte voor navbar */
+}
+
+/* Links */
 a {
     color: white;
-}
-a:visited {
-    color: white;
+    text-decoration: none;
 }
 a:hover {
     color: #6F86FF;
 }
 
-body {
-    background-color: rgb(65, 71, 97);
-    font-family: sans-serif;
-}
-
-
-
-/* off-screen-menu */
-.off-screen-menu {
-    background-color:  rgb(34, 37, 49);
-    height: 100vh;
-    width: 100%;
-    max-width: 450px;
+/* ====== NAVBAR ====== */
+nav {
     position: fixed;
     top: 0;
-    right: -450px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;    
-    justify-content: center;
-    text-align: center;
-    font-size: 3rem;
-    transition: .3s ease;
-}
-.off-screen-menu.active {
-    right: 0;
-}
-
-
-
-/* nav */
-nav {
-    padding: 1rem;
-    display: flex;
-    background-color: rgb(34, 37, 49);
-}
-
-
-
-/* ham menu */
-.ham-menu {
-    height: 50px;
-    width: 40px;
-    margin-left: auto;
-    position: relative;
-}
-.ham-menu span {
-    height: 5px;
+    left: 0;
     width: 100%;
-    background-color: #6F86FF;
-    border-radius: 25px;
+    height: 70px;
+    background-color: rgb(34,37,49);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    z-index: 1000;
+}
+
+/* Titel in navbar */
+.nav-title {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    max-width: 80%;
+}
+
+/* ====== HAMBURGER MENU LINKS ====== */
+.ham-menu {
+    position: absolute;
+    top: 22px;       /* iets lager geplaatst */
+    left: 15px;      /* afstand van linkerkant */
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* Hamburger-strepen */
+.ham-menu span {
+    display: block;
     position: absolute;
     left: 50%;
     top: 50%;
+    width: 100%;
+    height: 4px;
+    background-color: #6F86FF;
+    border-radius: 10px;
+    transition: 0.3s ease;
     transform: translate(-50%, -50%);
-    transition: .3s ease;
 }
-.ham-menu span:nth-child(1) {
-    top: 25%;
-}
-.ham-menu span:nth-child(3) {
-    top: 75%;
-}
+
+.ham-menu span:nth-child(1) { top: 25%; }
+.ham-menu span:nth-child(2) { top: 50%; }
+.ham-menu span:nth-child(3) { top: 75%; }
+
+/* Active hamburger menu (X) */
 .ham-menu.active span {
     background-color: white;
 }
@@ -95,5 +89,44 @@ nav {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+/* ====== OFF-SCREEN MENU ====== */
+.off-screen-menu {
+    position: fixed;
+    top: 0;
+    left: -450px;
+    width: 100%;
+    max-width: 450px;
+    height: 100vh;
+    background-color: rgb(34,37,49);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* bovenaan beginnen */
+    align-items: flex-start;     /* links uitlijnen */
+    font-size: 2rem;
+    transition: 0.3s ease;
+    z-index: 999;
+    padding: 40px 20px; /* ruimte boven en links */
+}
 
+.off-screen-menu.active {
+    left: 0;
+}
 
+.off-screen-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.off-screen-menu li {
+    margin: 10px 0; /* verticale afstand tussen items */
+}
+
+.off-screen-menu a {
+    font-size: 1.5rem;
+    color: white;
+    display: block;
+}
+.off-screen-menu a:hover {
+    color: #6F86FF;
+}
