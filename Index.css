@@ -53,7 +53,7 @@ nav {
     max-width: 80%;
 }
 
-/* ====== HAMBURGER MENU LINKS ====== */
+/* ====== HAMBURGER MENU ====== */
 .ham-menu {
     width: 40px;
     height: 50px;
@@ -102,10 +102,10 @@ nav {
 /* ====== OFF-SCREEN MENU ====== */
 .off-screen-menu {
     position: fixed;
-    top: 60px; /* iets lager zodat eerste link niet in navbar zit */
+    top: 60px;
     left: -270px;
     max-width: 270px;
-    height: calc(100vh - 60px); /* past onder navbar */
+    height: calc(100vh - 60px);
     background-color: rgb(34,37,49);
     display: flex;
     flex-direction: column;
@@ -127,7 +127,7 @@ nav {
 }
 
 .off-screen-menu li {
-    margin: 10px 0; /* verticale afstand tussen items */
+    margin: 10px 0;
 }
 
 .off-screen-menu a {
@@ -228,7 +228,6 @@ nav {
   word-wrap: break-word;
 }
 
-/* Bot-berichten (blauw, links) */
 #chat-box .bot-msg {
   background-color: #6F86FF;
   color: white;
@@ -236,10 +235,66 @@ nav {
   border-top-left-radius: 0;
 }
 
-/* Gebruiker-berichten (donkergrijs, rechts) */
 #chat-box .user-msg {
   background-color: #222;
   color: white;
   align-self: flex-end;
   border-top-right-radius: 0;
+}
+
+/* ================================================================= */
+/* ====================== RESPONSIVE VOOR MOBIEL ==================== */
+/* ================================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        background-attachment: scroll; /* voorkomt zoomproblemen */
+    }
+
+    /* Navbar titel kleiner */
+    .nav-title {
+        font-size: 1.4rem;
+        max-width: 60%;
+    }
+
+    /* Hamburger kleiner */
+    .ham-menu {
+        width: 32px;
+        height: 40px;
+        top: 18px;
+        left: 12px;
+    }
+
+    .ham-menu span {
+        height: 4px;
+    }
+
+    /* Off-screen menu smaller */
+    .off-screen-menu {
+        max-width: 220px;
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+
+    /* Chatbot knop kleiner */
+    #chat-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    /* Chat venster kleiner */
+    #chat-container {
+        width: 260px;
+        height: 350px;
+        bottom: 75px;
+        right: 15px;
+    }
+
+    #chat-input-area input {
+        font-size: 0.9rem;
+    }
 }
