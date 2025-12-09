@@ -91,11 +91,11 @@
           "heeey",
           "heey",
           "haai",
-          "hai",
+          "hai"
         ];
 
-        // Check of het een hallo is
-        if (halloVariaties.some((h) => vraag.includes(h))) {
+        // Check hallo
+        if (halloVariaties.some(h => vraag.includes(h))) {
           antwoord = "Hallo! Waar kan ik je mee helpen? 😊";
         } else if (
           vraag.includes("quiz") ||
@@ -103,11 +103,9 @@
           vraag.includes("spel") ||
           vraag.includes("test")
         ) {
-          antwoord =
-            "Open het menu links bovenin — helemaal onderaan vind je de knop ‘Quiz’. 🎯";
+          antwoord = "Open het menu links bovenin — helemaal onderaan vind je de knop ‘Quiz’. 🎯";
         } else {
-          antwoord =
-            "Bij andere vragen kun je het gewoon vragen aan de mensen bij het kraampje! 😊";
+          antwoord = "Bij andere vragen kun je het gewoon vragen aan de mensen bij het kraampje! 😊";
         }
 
         setTimeout(() => addMessage("Bot", antwoord), 500);
@@ -115,6 +113,14 @@
 
       function addMessage(sender, text) {
         const msg = document.createElement("div");
+
+        // Voeg juiste class toe voor chatballonnen
+        if (sender === "Bot") {
+          msg.className = "bot-msg";
+        } else {
+          msg.className = "user-msg";
+        }
+
         msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
         chatBox.appendChild(msg);
         chatBox.scrollTop = chatBox.scrollHeight;
